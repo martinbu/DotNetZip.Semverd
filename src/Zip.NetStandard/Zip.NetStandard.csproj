@@ -1,0 +1,49 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>Zip_NetStandard</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;NETSTANDARD2_0;AESCRYPTO;BZIP</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\netstandard2.0\Zip.NetStandard.xml</DocumentationFile>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;NETSTANDARD2_0;AESCRYPTO;BZIP</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\BZip2\BitWriter.cs" Link="BZip2\BitWriter.cs" />
+    <Compile Include="..\BZip2\BZip2Compressor.cs" Link="BZip2\BZip2Compressor.cs" />
+    <Compile Include="..\BZip2\BZip2InputStream.cs" Link="BZip2\BZip2InputStream.cs" />
+    <Compile Include="..\BZip2\BZip2OutputStream.cs" Link="BZip2\BZip2OutputStream.cs" />
+    <Compile Include="..\BZip2\ParallelBZip2OutputStream.cs" Link="BZip2\ParallelBZip2OutputStream.cs" />
+    <Compile Include="..\BZip2\Rand.cs" Link="BZip2\Rand.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="BZip2\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\Ionic.snk" Link="Ionic.snk" />
+  </ItemGroup>
+
+  <Import Project="..\Zip.Shared\Zip.Shared.projitems" Label="Shared" />
+  <Import Project="..\Zlib.Shared\Zlib.Shared.projitems" Label="Shared" />
+
+</Project>
