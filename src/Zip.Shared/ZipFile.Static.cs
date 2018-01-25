@@ -24,6 +24,12 @@ namespace Ionic.Zip
             System.Text.Encoding ibm437 = null;
             try
             {
+#if NETSTANDARD2_0
+                // net standard does not have IBM437 by default, 
+                // therefor System.Text.Encoding.CodePages nuget has to be installed
+                // and must be registered
+                Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+#endif
                 ibm437 = System.Text.Encoding.GetEncoding("IBM437");
             }
             catch (Exception /*e*/)
